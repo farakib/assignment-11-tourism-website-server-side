@@ -9,14 +9,17 @@ const Header = () => {
   const {user, logOut} = useAuth();
     return (
         <div>
-            <Navbar bg="dark" variant="dark">
+            <Navbar bg="dark" variant="dark" sticky="top">
     <Container>
-    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+    <Navbar.Brand to="/home">BdWatterFalls</Navbar.Brand>
     <Nav className="nav me-auto">
       <NavLink to="/home">Home</NavLink>
-      <NavLink to="/services">servies</NavLink>
-      <NavLink to="/pricing">Pricing</NavLink>
-      <NavLink to="/pricing">Pricing</NavLink>
+      <NavLink to="/services">Services</NavLink>
+      <NavLink to="/blogs">Blogs</NavLink>
+      <NavLink to="/about">About</NavLink>
+      
+      
+     
      {user?.email ?  
      <Button onClick={logOut} variant="light">LOgOut</Button>:
      <NavLink to="/login">LOgin</NavLink>

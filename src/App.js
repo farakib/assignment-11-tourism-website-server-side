@@ -7,6 +7,10 @@ import Header from './pages/Header/Header';
 import Services from './pages/Services/Services';
 import Login from './pages/Login/Login';
 import AuthProvider from './context/AuthProvider';
+import Booking from './pages/Booking/Booking/Booking';
+import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
+import Blogs from './pages/Blogs/Blogs';
+
 
 function App() {
   return (
@@ -24,10 +28,17 @@ function App() {
         <Route path='/services'>
           <Services></Services>
         </Route>
+        <Route path='/blogs'>
+          <Blogs></Blogs>
+        </Route>
+        
         {/* eikane akta private route korbo */}
         <Route path='/login'>
           <Login></Login>
         </Route>
+        <PrivateRoute path='/booking'>
+          <Booking></Booking>
+        </PrivateRoute>
       </Switch>
       </BrowserRouter>
       </AuthProvider>
