@@ -12,6 +12,7 @@ import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import Blogs from './pages/Blogs/Blogs';
 
 
+
 function App() {
   return (
     <div className="App">
@@ -36,7 +37,9 @@ function App() {
         <Route path='/login'>
           <Login></Login>
         </Route>
-        <PrivateRoute path='/booking'>
+        
+        
+        <PrivateRoute path='/booking/:serviceId'>
           <Booking></Booking>
         </PrivateRoute>
       </Switch>
