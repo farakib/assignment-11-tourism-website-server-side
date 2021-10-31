@@ -9,22 +9,31 @@ const Header = () => {
   const {user, logOut} = useAuth();
     return (
         <div>
-            <Navbar bg="dark" variant="dark" sticky="top">
-    <Container>
-    <Navbar.Brand to="/home">BdWatterFalls</Navbar.Brand>
+   <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top" >
+    <Container fluid>
+    <Navbar.Brand to="/home">BdWaterFalls</Navbar.Brand>
+    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+    <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="nav me-auto">
-      <NavLink to="/home">Home</NavLink>
-      <NavLink to="/services">Services</NavLink>
-      <NavLink to="/blogs">Blogs</NavLink>
-      <NavLink to="/about">About</NavLink>
+      <NavLink className="nav-item" to="/home">Home</NavLink>
+      <NavLink className="nav-item" to="/services">Services</NavLink>
+      <NavLink className="nav-item" to="/blogs">Blogs</NavLink>
+      <NavLink className="nav-item" to="/contact">Contact</NavLink>
       
       
-     
+
+      
      {user?.email ?  
-     <Button onClick={logOut} variant="light">LOgOut</Button>:
+        
+     <Button className=""  onClick={logOut} variant="light">LogOut</Button> 
+     :
      <NavLink to="/login">LOgin</NavLink>
+
      }
+
+    
     </Nav>
+    </Navbar.Collapse>
     <Navbar.Toggle />
     <Navbar.Collapse className="justify-content-end">
       <Navbar.Text>

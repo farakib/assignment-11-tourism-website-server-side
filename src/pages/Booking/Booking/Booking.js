@@ -7,44 +7,32 @@ import Services from '../../Services/Services';
 const Booking = () => {
     const {serviceId} = useParams();
     const { register, handleSubmit, reset } = useForm();
-
+    
     const nameRef = useRef();
     const emailRef = useRef();
     const ageRef = useRef();
     const addressRef = useRef();
 
 
-    const handleUsers = (e) => {
-
-        const name = nameRef.current.value;
-        const email = emailRef.current.value;
-        const age = ageRef.current.value;
-        const address = addressRef.current.value;
-
-        const newUser = {name, email, age, address};
-
-        fetch('http://localhost:5000/users', {
-            method: 'POST',
-           headers: {
-             'content-type': 'application/json'
-         },
-        body: JSON.stringify(newUser)
-        })
-
-        .then(res=> res.json())
-        .then(data=>{
-            if(data.insertedId){
-                alert('confirm your tour')
-                e.target.reset();
+    const onSubmit = data => {
+        console.log(data);
+        axios.post('http://localhost:5000/users', data)
+        .then(res => {
+            if(res.data.insertedId){
+                alert('tour  confirmed');
+                reset();
             }
+            
+
         })
-        e.preventDefault();
+
+      
     };
     return (
         <div className="booking">
             <h2>Booking:{serviceId}</h2>
             <h2>place your booking</h2>
-    <form onSubmit={handleUsers}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <input placeholder="first name" ref={nameRef} {...register("name", { required: true, maxLength: 20 })} /> 
       <input placeholder="age" ref={ageRef} type="number" {...register("age", { min: 18, max: 99 })} /> 
       <input placeholder="email" ref={emailRef} type="email" {...register("email")} />

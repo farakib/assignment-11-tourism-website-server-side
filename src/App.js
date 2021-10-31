@@ -10,6 +10,10 @@ import AuthProvider from './context/AuthProvider';
 import Booking from './pages/Booking/Booking/Booking';
 import PrivateRoute from './pages/Login/PrivateRoute/PrivateRoute';
 import Blogs from './pages/Blogs/Blogs';
+import ManageOrders from './pages/ManageOrders/ManageOrders';
+import Contact from './pages/Contact/Contact';
+import Footer from './pages/Footer/Footer';
+import NotFound from './pages/NotFound/NotFound';
 
 
 
@@ -32,17 +36,24 @@ function App() {
         <Route path='/blogs'>
           <Blogs></Blogs>
         </Route>
-        
-        {/* eikane akta private route korbo */}
+        <Route path='/manageOrders'>
+          <ManageOrders></ManageOrders>
+        </Route>
+        <Route path='/contact'>
+          <Contact></Contact>
+        </Route>
         <Route path='/login'>
           <Login></Login>
         </Route>
         
-        
         <PrivateRoute path='/booking/:serviceId'>
           <Booking></Booking>
         </PrivateRoute>
+        <Route path='*'>
+          <NotFound></NotFound>
+        </Route>
       </Switch>
+      <Footer></Footer>
       </BrowserRouter>
       </AuthProvider>
     </div>

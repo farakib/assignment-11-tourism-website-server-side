@@ -7,7 +7,7 @@ const Service = ({service}) => {
             
  
     <div className="col">
-    <div class="card h-100">
+    <div class="container card h-100">
       <img src={img} className="card-img-top h-100" alt="..."/>
       <div className="card-body">
         <h2 className="card-title pb-3">{title}</h2>
