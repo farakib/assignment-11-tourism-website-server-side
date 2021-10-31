@@ -16,7 +16,7 @@ const Booking = () => {
 
     const onSubmit = data => {
         console.log(data);
-        axios.post('http://localhost:5000/users', data)
+        axios.post('https://dreadful-spider-06706.herokuapp.com//users', data)
         .then(res => {
             if(res.data.insertedId){
                 alert('tour  confirmed');

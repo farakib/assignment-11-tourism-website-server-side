@@ -46,7 +46,7 @@ function App() {
           <Login></Login>
         </Route>
         
-        <PrivateRoute path='/booking/:serviceId'>
+        <PrivateRoute path='/booking:/serviceId'>
           <Booking></Booking>
         </PrivateRoute>
         <Route path='*'>
